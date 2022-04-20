@@ -15,4 +15,10 @@ export function gradient(data: Uint8ClampedArray, x: number, y: number, width: n
 
     // TODO: Compute the position of pixel (x, y) in the linearised 'data' array. Each pixel is using 4 bytes in the data array, one each for red, green, blue and alpha.
     // TODO:  Set the red, green and blue components of pixel (x, y) to draw a gradient from black (0) to white (255). Set the alpha component to maximum (255).
+ for(let i = 0; i < data.length; i += 4) {
+        data[i] = 0;
+        data[i + 1] = 0;
+        data[i + 2] = 0;
+        data[i + 3] =255- x*255/width;
+ }
 }
