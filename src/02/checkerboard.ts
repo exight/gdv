@@ -1,7 +1,5 @@
+import * as G from 'glob';
 import { swapBuffers } from './setup-checkerboard';
-
-var currentrow = 0;
-var currentcolumn = -1;
 
 
 /**
@@ -20,28 +18,17 @@ export function checkerboard(data: Uint8ClampedArray, x: number, y: number, widt
     // console.log(x);
     
     // TODO: Imagine an 8x8 tile checkerboard across the width and height of the canvas. Compute if the pixel at position (x, y) is inside a black or white tile. Set the pixel color accordingly in the pixel array 'data'.
-    // for(let i = 0; i < data.length; i+=150){
-    //     if (i==1200) {
-    //         console.log(i);
-            
-    //     }
-    //     currentcolumn++
-    //     if(currentcolumn % 2 == 0){
-    //         for(let j = i; j < 150+i; j+=4){
-    //             data[j+3] = 255;
-    //         }
-    //     }else{
-    //         data[i+1]=255
-    //     }
-    // }
-    data[y*width+x*4] = 255;
-    // currentrow++;   
+  
+   
+
+    let position = (y*(width*4))+(x*4);
+
+    const farbe = (Math.floor(x/width*8)%2 ^ Math.floor(y/height*8)%2) ? [255,255,255,255]: [0,0,0,255];
+
+    data.set(farbe, position);
 
     
     
-
-
-
 }
 
 

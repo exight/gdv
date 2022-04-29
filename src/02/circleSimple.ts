@@ -15,4 +15,13 @@ import { swapBuffers } from './setup-circleSimple';
 export function circleSimple(data: Uint8ClampedArray, x: number, y: number, width: number, height: number, radius: number) {
 
     // TODO: Imagine a circle with center in the middle of the framebuffer and given radius. Which pixel is the center? Check if pixel (x, y) is inside the circle or not. Set the pixel color accordingly in the pixel array 'data'.
+
+    let position = (y*(width*4))+(x*4);
+    if(x*x+y*y<=radius*radius){
+        data.set([0,0,0,255], position);
+        console.log(position);
+        
+    }
+
+
 }
