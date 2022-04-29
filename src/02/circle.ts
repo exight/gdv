@@ -17,4 +17,13 @@ import { swapBuffers } from './setup-circle';
 export function circle(data: Uint8ClampedArray, x: number, y: number, cx: number, cy: number, width: number, height: number, radius: number) {
 
     // TODO: Imagine a circle with center (cx, cy) and given radius. Check if pixel (x, y) is inside this circle or not. Set the pixel color accordingly in the pixel array 'data'.
+
+    
+    let position = (y*(width*4))+(x*4);
+    if(Math.pow(x-cx, 2)+Math.pow(y-cy, 2)<=radius*radius){
+        data.set([0,0,0,255], position);        
+    }else{
+        data.set([255,255,255,255], position);
+    }
+
 }
