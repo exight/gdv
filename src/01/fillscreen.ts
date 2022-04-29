@@ -15,8 +15,12 @@ export function fillscreen(data: Uint8ClampedArray, x: number, y: number, width:
 
     // TODO: Compute the position of pixel (x, y) in the linearised 'data' array. Each pixel is using 4 bytes in the data array, one each for red, green, blue and alpha.
     // TODO:  Set the red and alpha component of pixel (x, y) to maximum (255).
-    for (let i = 0; i < data.length; i += 4) {
-        data[i] = 255;
-        data[i + 3] = 255;
-    }
+
+    let r =255
+    let g =0
+    let b =0
+    let a =255
+    let position = (y * width *4) +x *4
+    data.set([r,g,b,a], position)
+
 }
