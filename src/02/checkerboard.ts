@@ -1,6 +1,8 @@
 import { swapBuffers } from './setup-checkerboard';
 
-var currentline = -1;
+var currentrow = 0;
+var currentcolumn = -1;
+
 
 /**
  * Determines the color of a pixel (x, y) to create
@@ -14,28 +16,32 @@ var currentline = -1;
  * @param height The height of the canvas
  */
 export function checkerboard(data: Uint8ClampedArray, x: number, y: number, width: number, height: number) {
-
-    // TODO: Imagine an 8x8 tile checkerboard across the width and height of the canvas. Compute if the 
-    //pixel at position (x, y)     is inside a black or white tile. Set the pixel color accordingly in the pixel array 'data'.
-    console.log(width, height);
-    for(let i=0; i<data.length; i+=4){
-        if(i%(width/8) == 0){
-            currentline++;
-        }
-        if(currentline%2 == 0){
-            data[i] = 255;
-            data[i+1] = 255;
-            data[i+2] = 255;
-            data[i+3] = 255;
-        }
-        else{
-            data[i] = 0;
-            data[i+1] = 0;
-            data[i+2] = 0;
-            data[i+3] = 255;
-        }
+    // console.log(Math.round(width/8)*4);
+    // console.log(x);
     
-    }
+    // TODO: Imagine an 8x8 tile checkerboard across the width and height of the canvas. Compute if the pixel at position (x, y) is inside a black or white tile. Set the pixel color accordingly in the pixel array 'data'.
+    // for(let i = 0; i < data.length; i+=150){
+    //     if (i==1200) {
+    //         console.log(i);
+            
+    //     }
+    //     currentcolumn++
+    //     if(currentcolumn % 2 == 0){
+    //         for(let j = i; j < 150+i; j+=4){
+    //             data[j+3] = 255;
+    //         }
+    //     }else{
+    //         data[i+1]=255
+    //     }
+    // }
+    data[y*width+x*4] = 255;
+    // currentrow++;   
+
+    
+    
+
+
+
 }
 
 
