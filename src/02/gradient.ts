@@ -18,7 +18,7 @@ export function gradient(data: Uint8ClampedArray, x: number, y: number, width: n
     let r =0
     let g =0
     let b =0
-    let a =255- x*255/width
+    let a =255-x*255/width
     let position = (y * width *4) +x *4
     data.set([r,g,b,a], position)
 }
