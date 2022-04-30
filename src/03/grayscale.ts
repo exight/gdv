@@ -26,6 +26,8 @@ export function grayscale(x: number, y: number, source: Uint8ClampedArray, targe
     const X =  0.4124564*r+0.3575761*g+0.1804375*b;
     const Y =  0.2126729*r+0.7151522*g+0.0721750*b;
     const Z =  0.0193339*r+0.1191920*g+0.9503041*b;
-    target.set([X, Y, Z, a], position);
+ 
+    
+    target.set([0, 0, 0, 255-Y], position);
 
 }
