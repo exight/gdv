@@ -20,7 +20,7 @@ export function quantisegrayscale(x: number, y: number, source: Uint8ClampedArra
     let a=source[position+3];
 
     let numberColors=4
-    let step=256/numberColors
+    let step=256/(numberColors)
     
     //umrechnung von rgb nach xyz
     const X =  0.4124564*r+0.3575761*g+0.1804375*b;
@@ -30,11 +30,35 @@ export function quantisegrayscale(x: number, y: number, source: Uint8ClampedArra
     // TODO: Limit the brightness to the set of 4 different values 0, 85, 170, 255.
 
     // let Y_quant=Math.floor(Y/Math.floor(255/4))*Math.floor(255/4);
-    let Y_quant=Math.floor(Math.floor(Y/step)*step);
+    // let Y_quant=Math.floor(Math.floor(Y/step)*step);
+    let Y_quant=quant(Y,step);
     
     
     // TODO: Set the RGBA values in the target array to this brightness.
     
+    
     target.set([0, 0, 0,255-Y_quant], position);
 
+}
+
+function quant(value:number, step:number) {
+    
+    let quant=Math.floor(Math.floor(value/step)*step);
+    switch(quant){
+        case 64:
+            quant=85;
+            break
+        case 128:
+            quant=170;
+            break
+        case 192:
+            quant=255;
+            break
+        default:
+            quant=0;
+    }
+    console.log(quant);
+    
+    return quant
+    
 }
