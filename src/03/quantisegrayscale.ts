@@ -57,7 +57,7 @@ function quant(value:number, step:number) {
         default:
             quant=0;
     }
-    console.log(quant);
+    // console.log(quant);
     
     return quant
     
