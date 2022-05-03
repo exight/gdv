@@ -23,7 +23,7 @@ export function gammaAdjust(gamma: number, source: Uint8ClampedArray,
     let a=source[position+3];
     // console.log(gamma);
 
-    dest.set([setGamma(r,gamma), setGamma(g,gamma), setGamma(b,gamma), setGamma(a,gamma)], position);
+    dest.set([setGamma(r,gamma), setGamma(g,gamma), setGamma(b,gamma), a], position);
 
 }
 
