@@ -36,7 +36,7 @@ export function ddaSimple(
     let m=dy/dx;  
     
    
-    for(let x=x1;x<x2-x1;x++){
+    for(let x=x1; x<x2-x1; x++){
         let y=Math.round(m*x)+pointA[1];
         let position = (y*(width*4))+(x*4);
         data.set([0, 0, 0, 255], position);

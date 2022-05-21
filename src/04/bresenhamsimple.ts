@@ -19,6 +19,24 @@
 export function bresenhamSimple(data: Uint8ClampedArray, pointA: [number, number], pointB: [number, number], width: number, height: number) {
     
     // TODO: 1. Calculate dx and dy and set the start position x and y
+    let x1=pointA[0];
+    let y1=pointA[1];
+    let x2=pointB[0];
+    let y2=pointB[1];
+    let dx = (x2 -x1);
+    let dy = (y2 - y1);    
     // TODO: 2. Calculate the initial epsilon of the bresenham algorithm
     // TODO: 3. Go from pointA[0] to pointB[0], and update epsilon in each step as given in the bresenham algorithm. Increase y when necessary.
+    let fehler =dx/2;
+    let y=y1;
+    for(let x=x1; x<x2; x+=4){
+        fehler-=dy;
+        if(fehler<0){
+            y=y+1;
+            fehler+=dx;
+        }
+        let position = (y*(width*4))+(x*4);
+        data.set([0, 0, 0, 255], position);
+    }
+
 }
