@@ -10,4 +10,6 @@
 export function bresenham(data: Uint8ClampedArray, pointA: [number, number], pointB: [number, number], width: number, height: number) {
     
     // TODO: Adapt the C-implementation at https://de.wikipedia.org/wiki/Bresenham-Algorithmus#C-Implementierung
+
+
 }
